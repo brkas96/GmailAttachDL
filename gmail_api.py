@@ -14,6 +14,25 @@ from urllib.request import urlopen
 import ctypes
 
 """
+Auto Attachment Downloader for Gmail - Version 1.2.2
+
+Copyright (c) 2024 Bruno Benvenutti
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
+documentation files (the "BaixarAnexosGmail"), to deal in the Software without restriction, including without 
+limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the 
+Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions 
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE.
+
+
 Auto downloader de anexos para Gmail - Versão 1.2.2
 
 Copyright (c) 2024 Bruno Benvenutti
@@ -126,11 +145,13 @@ def gerar_token():
 
     return creds
 
+
 def obter_email(credentials):
     service = build('gmail', 'v1', credentials=credentials)
     info_conta = service.users().getProfile(userId='me').execute()
     email = info_conta.get('emailAddress')
     return email
+
 
 def listar_contas():
     diretorio = os.getcwd()
@@ -142,6 +163,7 @@ def listar_contas():
 
     contas = arquivos_com_palavra
     return contas
+
 
 def verificar_conta(arquivo_escolhido):
     creds = None
@@ -194,6 +216,7 @@ def salvar_credencial_unica(credentials, email):
 
     return email_json
 
+
 def marcar_como_lido(service, user_id, message_id):
     try:
         service.users().messages().modify(userId=user_id, id=message_id, body={'removeLabelIds': ['UNREAD']}).execute()
@@ -202,6 +225,7 @@ def marcar_como_lido(service, user_id, message_id):
     except Exception as e:
         print(f"Δ Erro ao marcar email como lido: {e}")
         time.sleep(30)
+
 
 def baixar_anexos(service, user_id, message_id, diretorio):
     try:
@@ -377,9 +401,11 @@ def checar_conexao():
     except urllib.error.URLError:
         return False
 
+
 def reiniciar_programa():
     python = sys.executable
     os.execl(python, python, *sys.argv)
+
 
 def contador_segundos(tempo_total, texto):
     for segundos in range(tempo_total, 0, -1):
@@ -388,6 +414,7 @@ def contador_segundos(tempo_total, texto):
 
     # Limpar a linha após a contagem regressiva
     print(" " * len(f"Δ Aguardando {tempo_total} segundos {texto}"), end='\r', flush=True)
+
 
 def limpar_inbox(service):
     # Excluir emails lidos da caixa de entrada
@@ -410,6 +437,7 @@ def limpar_inbox(service):
         print("")
         time.sleep(3)
 
+
 def ler_config(parametro):
     # Formato do parametro 'texto='
     with open(SAVE_DIR, 'r') as config:
@@ -420,6 +448,7 @@ def ler_config(parametro):
                 result = linha.split('=')[1].strip()
                 return result
         return result
+
 
 def escrever_config(p1, p2):
     try:
@@ -441,6 +470,7 @@ def escrever_config(p1, p2):
     with open(SAVE_DIR, 'w') as config:
         config.writelines(linhas)
 
+
 def calcular_diferenca():
     data_str1 = datetime.now().date().strftime("%Y-%m-%d")
     data_str2 = ler_config('auto_clear_date=')
@@ -452,6 +482,7 @@ def calcular_diferenca():
     except Exception as e:
         print(f"Erro em calcular_diferenca(): {e}")
     return dif_date
+
 
 def main():
     # Configuração do logger que é uma biblioteca para salvar erros em um arquivo para que eu possa consultar depois
