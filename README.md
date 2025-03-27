@@ -7,6 +7,10 @@
 
 # ABOUT :white_check_mark:
 
+-This project was written in Python and utilizes the Gmail APIs to automate the process of monitoring and 
+downloading attachments from Gmail accounts. By integrating with the Gmail API, the program can access and manage 
+email data, enabling efficient attachment retrieval based on specific criteria such as unread emails in the inbox.
+
 -This automation was developed and tested on Windows 10.
 
 -This program is an automation tool that monitors and downloads attachments from Gmail accounts. It supports multiple 
