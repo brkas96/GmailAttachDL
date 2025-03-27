@@ -1,11 +1,11 @@
 # Auto Attachment Downloader for Gmail
 
 
-**Support this project**: [![Patrocine este projeto](https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors)](https://github.com/sponsors/brkas96)
+:rocket: **Support this project**: [![Patrocine este projeto](https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors)](https://github.com/sponsors/brkas96)
 
-**Contact**: brkas_dev@proton.me
+:rocket: **Contact**: brkas_dev@proton.me
 
-# ABOUT
+# ABOUT :white_check_mark:
 
 -This automation was developed and tested on Windows 10.
 
@@ -19,7 +19,7 @@ read emails will be ignored.
 This program is under development.
 More features will be added over time.
 
-# HOW TO USE
+# HOW TO USE :white_check_mark:
 
 This guide assumes that you already know how to create and configure a project using APIs in Google Cloud. If not, 
 I recommend reading the official documentation at the link below.
@@ -48,14 +48,7 @@ listed in the **requirements.txt** file.
 following command: `pyinstaller gmail_api.spec`
 
 
-
-
-
-
-
-
-
-# Baixar Anexos do Gmail automaticamente
+# Baixar Anexos do Gmail automaticamente (PT-BR)
 
 Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors)](https://github.com/sponsors/brkas96)
 
